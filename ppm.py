@@ -11,7 +11,6 @@ class PackageManager:
         self.package_urls = {
             "math": "https://github.com/IgorCielniak/Pryzma-packages/archive/refs/heads/math.zip",
             "std": "https://github.com/IgorCielniak/Pryzma-packages/archive/refs/heads/std.zip"
-            # Add more package name-URL associations as needed
         }
 
     def initialize_repository(self):
@@ -95,26 +94,17 @@ class PackageManager:
     import os
 
     def delete_prefix(self, directory_path):
-        # Check if the specified directory exists
         if not os.path.exists(directory_path):
             return
         
-        # List all directories in the specified directory
         directories = os.listdir(directory_path)
         
-        # Iterate through each directory
         for dir_name in directories:
-            # Check if the directory starts with 'gg'
             if dir_name.startswith("Pryzma-packages-"):
-                # Get the full path of the directory
                 full_path = os.path.join(directory_path, dir_name)
-                # Check if it's a directory
                 if os.path.isdir(full_path):
-                    # Remove 'gg' prefix
                     new_name = dir_name[16:]
-                    # Construct the new path with the modified directory name
                     new_full_path = os.path.join(directory_path, new_name)
-                    # Rename the directory
                     os.rename(full_path, new_full_path)
 
 
